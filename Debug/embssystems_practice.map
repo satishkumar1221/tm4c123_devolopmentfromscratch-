@@ -1,0 +1,234 @@
+******************************************************************************
+                  TI ARM Linker Unix v18.12.3                  
+******************************************************************************
+>> Linked Mon Dec 30 11:50:30 2019
+
+OUTPUT FILE NAME:   <embssystems_practice.out>
+ENTRY POINT SYMBOL: "_c_int00_noargs"  address: 0000058d
+
+
+MEMORY CONFIGURATION
+
+         name            origin    length      used     unused   attr    fill
+----------------------  --------  ---------  --------  --------  ----  --------
+  FLASH                 00000000   00040000  0000066e  0003f992  R  X
+  SRAM                  20000000   00008000  0000022c  00007dd4  RW X
+
+
+SEGMENT ALLOCATION MAP
+
+run origin  load origin   length   init length attrs members
+----------  ----------- ---------- ----------- ----- -------
+00000000    00000000    00000674   00000674    r-x
+  00000000    00000000    0000026c   0000026c    r-- .intvecs
+  0000026c    0000026c    000003c6   000003c6    r-x .text
+  00000634    00000634    00000028   00000028    r-- .const
+  00000660    00000660    00000014   00000014    r-- .cinit
+20000000    20000000    0000022c   00000000    rw-
+  20000000    20000000    00000200   00000000    rw- .stack
+  20000200    20000200    0000002c   00000000    rw- .bss
+
+
+SECTION ALLOCATION MAP
+
+ output                                  attributes/
+section   page    origin      length       input sections
+--------  ----  ----------  ----------   ----------------
+.intvecs   0    00000000    0000026c     
+                  00000000    0000026c     tm4c123gh6pm_startup_ccs.obj (.intvecs)
+
+.text      0    0000026c    000003c6     
+                  0000026c    00000234     os.obj (.text)
+                  000004a0    000000a8     sys_init.obj (.text)
+                  00000548    00000044     rtsv7M4_T_le_v4SPD16_eabi.lib : autoinit.c.obj (.text:__TI_auto_init_nobinit_nopinit:__TI_auto_init_nobinit_nopinit)
+                  0000058c    00000034                                   : boot_cortex_m.c.obj (.text:_c_int00_noargs:_c_int00_noargs)
+                  000005c0    00000024     main.obj (.text:os_tasksplitter)
+                  000005e4    0000001c     rtsv7M4_T_le_v4SPD16_eabi.lib : copy_zero_init.c.obj (.text:decompress:ZI:__TI_zero_init_nomemset:__TI_zero_init_nomemset)
+                  00000600    00000010     main.obj (.text:os_tick_reset)
+                  00000610    0000000e     main.obj (.text)
+                  0000061e    0000000c     tm4c123gh6pm_startup_ccs.obj (.text)
+                  0000062a    00000004     rtsv7M4_T_le_v4SPD16_eabi.lib : pre_init.c.obj (.text:_system_pre_init)
+                  0000062e    00000004                                   : exit.c.obj (.text:abort:abort)
+
+.const     0    00000634    00000028     
+                  00000634    00000028     os.obj (.const:sch1)
+
+.cinit     0    00000660    00000014     
+                  00000660    00000008     (.cinit..bss.load) [load image, compression = zero_init]
+                  00000668    00000004     (__TI_handler_table)
+                  0000066c    00000008     (__TI_cinit_table)
+
+.init_array 
+*          0    00000000    00000000     UNINITIALIZED
+
+.bss       0    20000200    0000002c     UNINITIALIZED
+                  20000200    00000014     (.common:count_test)
+                  20000214    0000000c     (.common:os_normal_task_count)
+                  20000220    00000004     (.common:count)
+                  20000224    00000004     (.common:oscounterincrement_1ms)
+                  20000228    00000002     (.common:task_mask)
+                  2000022a    00000002     (.common:task_mask_p1)
+
+.stack     0    20000000    00000200     UNINITIALIZED
+                  20000000    00000004     rtsv7M4_T_le_v4SPD16_eabi.lib : boot_cortex_m.c.obj (.stack)
+                  20000004    000001fc     --HOLE--
+
+MODULE SUMMARY
+
+       Module                         code   ro data   rw data
+       ------                         ----   -------   -------
+    ./
+       tm4c123gh6pm_startup_ccs.obj   12     620       0      
+       main.obj                       66     0         0      
+    +--+------------------------------+------+---------+---------+
+       Total:                         78     620       0      
+                                                              
+    ./OSFILES/
+       os.obj                         564    40        44     
+    +--+------------------------------+------+---------+---------+
+       Total:                         564    40        44     
+                                                              
+    ./SOURCE/
+       sys_init.obj                   168    0         0      
+    +--+------------------------------+------+---------+---------+
+       Total:                         168    0         0      
+                                                              
+    /home/satish/ti/ccs920/ccs/tools/compiler/ti-cgt-arm_18.12.3.LTS/lib/rtsv7M4_T_le_v4SPD16_eabi.lib
+       autoinit.c.obj                 68     0         0      
+       boot_cortex_m.c.obj            52     0         0      
+       copy_zero_init.c.obj           28     0         0      
+       exit.c.obj                     4      0         0      
+       pre_init.c.obj                 4      0         0      
+    +--+------------------------------+------+---------+---------+
+       Total:                         156    0         0      
+                                                              
+       Stack:                         0      0         512    
+       Linker Generated:              0      20        0      
+    +--+------------------------------+------+---------+---------+
+       Grand Total:                   966    680       556    
+
+
+LINKER GENERATED COPY TABLES
+
+__TI_cinit_table @ 0000066c records: 1, size/record: 8, table size: 8
+	.bss: load addr=00000660, load size=00000008 bytes, run addr=20000200, run size=0000002c bytes, compression=zero_init
+
+
+LINKER GENERATED HANDLER TABLE
+
+__TI_handler_table @ 00000668 records: 1, size/record: 4, table size: 4
+	index: 0, handler: __TI_zero_init
+
+
+GLOBAL SYMBOLS: SORTED ALPHABETICALLY BY Name 
+
+address   name                          
+-------   ----                          
+0000062f  C$$EXIT                       
+0000061f  ResetISR                      
+20000200  __STACK_END                   
+00000200  __STACK_SIZE                  
+20000200  __STACK_TOP                   
+0000066c  __TI_CINIT_Base               
+00000674  __TI_CINIT_Limit              
+00000668  __TI_Handler_Table_Base       
+0000066c  __TI_Handler_Table_Limit      
+00000549  __TI_auto_init_nobinit_nopinit
+ffffffff  __TI_pprof_out_hndl           
+ffffffff  __TI_prof_data_size           
+ffffffff  __TI_prof_data_start          
+00000000  __TI_static_base__            
+000005e5  __TI_zero_init_nomemset       
+ffffffff  __binit__                     
+ffffffff  __c_args__                    
+UNDEFED   __mpu_init                    
+20000000  __stack                       
+0000058d  _c_int00_noargs               
+UNDEFED   _system_post_cinit            
+0000062b  _system_pre_init              
+0000062f  abort                         
+ffffffff  binit                         
+0000026d  cooperative_scheduler         
+20000220  count                         
+20000200  count_test                    
+00000000  g_pfnVectors                  
+000004a1  initilize_rcc_registers       
+000004db  intilize_rcc2_registers       
+00000611  main                          
+20000214  os_normal_task_count          
+000005c1  os_tasksplitter               
+00000601  os_tick_reset                 
+20000224  oscounterincrement_1ms        
+0000052f  powerdown_sequence            
+00000634  sch1                          
+0000041f  set_maxtaskmask               
+000003cf  start_os                      
+00000509  sys_init                      
+00000511  system_clkregister_initilize  
+00000453  system_register_initilize     
+00000519  systick_initlize              
+000003bb  task_100ms                    
+000003a7  task_10ms                     
+000003c5  task_1ms                      
+000003b1  task_20ms                     
+0000039d  task_5ms                      
+20000228  task_mask                     
+2000022a  task_mask_p1                  
+
+
+GLOBAL SYMBOLS: SORTED BY Symbol Address 
+
+address   name                          
+-------   ----                          
+00000000  __TI_static_base__            
+00000000  g_pfnVectors                  
+00000200  __STACK_SIZE                  
+0000026d  cooperative_scheduler         
+0000039d  task_5ms                      
+000003a7  task_10ms                     
+000003b1  task_20ms                     
+000003bb  task_100ms                    
+000003c5  task_1ms                      
+000003cf  start_os                      
+0000041f  set_maxtaskmask               
+00000453  system_register_initilize     
+000004a1  initilize_rcc_registers       
+000004db  intilize_rcc2_registers       
+00000509  sys_init                      
+00000511  system_clkregister_initilize  
+00000519  systick_initlize              
+0000052f  powerdown_sequence            
+00000549  __TI_auto_init_nobinit_nopinit
+0000058d  _c_int00_noargs               
+000005c1  os_tasksplitter               
+000005e5  __TI_zero_init_nomemset       
+00000601  os_tick_reset                 
+00000611  main                          
+0000061f  ResetISR                      
+0000062b  _system_pre_init              
+0000062f  C$$EXIT                       
+0000062f  abort                         
+00000634  sch1                          
+00000668  __TI_Handler_Table_Base       
+0000066c  __TI_CINIT_Base               
+0000066c  __TI_Handler_Table_Limit      
+00000674  __TI_CINIT_Limit              
+20000000  __stack                       
+20000200  __STACK_END                   
+20000200  __STACK_TOP                   
+20000200  count_test                    
+20000214  os_normal_task_count          
+20000220  count                         
+20000224  oscounterincrement_1ms        
+20000228  task_mask                     
+2000022a  task_mask_p1                  
+ffffffff  __TI_pprof_out_hndl           
+ffffffff  __TI_prof_data_size           
+ffffffff  __TI_prof_data_start          
+ffffffff  __binit__                     
+ffffffff  __c_args__                    
+ffffffff  binit                         
+UNDEFED   __mpu_init                    
+UNDEFED   _system_post_cinit            
+
+[50 symbols]
