@@ -50,7 +50,7 @@ void systick_initlize()
    //Initilize ST_Reload Register//
     /*The formula to calculate st_reload register is  given below*/
     /* ST_RELOAD = ( CClk / ticks ) -1  // CClk is the system clock and ticks is number per second. 1 ms is 1000 ticks
-     * hence ST_RELOAD = ((16.384*1066)/1000)-1 = 16383
+     * hence ST_RELOAD = ((16.384*10^6)/1000)-1 = 16383
      *
      * )
      * */
