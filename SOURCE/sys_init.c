@@ -5,7 +5,7 @@ void initilize_rcc_registers()
 /*configure bit by bit*/
 /*Bad way of doing it but easy to understand*/
   // write_Registers(SYSCTL_RCC_R,SYSCTL_RCC_MOSCDIS);
-  SYSCTL_RCC_R = (SYSCTL_RCC_R | 0x0); // enab;e the main oscillator
+  SYSCTL_RCC_R =  0x0; // enab;e the main oscillator
   /*Configure OSCRC in RCC to enable internal osciallator*/
   //write_Registers(SYSCTL_RCC_R,SYSCTL_RCC_OSCSRC_INT);
   SYSCTL_RCC_R = (SYSCTL_RCC_R | SYSCTL_RCC_OSCSRC_MAIN); // we want main oscillator as the source
@@ -17,7 +17,7 @@ void initilize_rcc_registers()
   //SYSCTL_RCC_R = (SYSCTL_RCC_R |0x00);
   //19:17 bit is nit touched and sete to default
   //bit 20 will aslo be take care later
-  SYSCTL_RCC_R |= (SYSCTL_RCC_R | SYSCTL_RCC_USESYSDIV ) ;//                                USESYSDIV
+  SYSCTL_RCC_R |= (SYSCTL_RCC_R /*| SYSCTL_RCC_USESYSDIV*/ ) ;//                                USESYSDIV
   //SYSCTL_RCC_R |= (SYSCTL_RCC_R |);// chace of messing thsis up
   //take default to be 0 RCC2 not used as of now // initial devolopment phase
 
@@ -35,7 +35,7 @@ void intilize_rcc2_registers()
 void sys_init()
 {
     system_clkregister_initilize(); 
-   // systick_initlize();
+    systick_initlize();
 }
 
 void system_clkregister_initilize()

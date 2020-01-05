@@ -10,6 +10,10 @@ OSFILES/os.obj: /home/satish/ti/ccs920/ccs/tools/compiler/ti-cgt-arm_18.12.3.LTS
 OSFILES/os.obj: /home/satish/ti/ccs920/ccs/tools/compiler/ti-cgt-arm_18.12.3.LTS/include/machine/_types.h
 OSFILES/os.obj: /home/satish/ti/ccs920/ccs/tools/compiler/ti-cgt-arm_18.12.3.LTS/include/machine/_stdint.h
 OSFILES/os.obj: /home/satish/ti/ccs920/ccs/tools/compiler/ti-cgt-arm_18.12.3.LTS/include/sys/_stdint.h
+OSFILES/os.obj: /home/satish/ti/ccs920/ccs/tools/compiler/ti-cgt-arm_18.12.3.LTS/include/stdio.h
+OSFILES/os.obj: /home/satish/ti/ccs920/ccs/tools/compiler/ti-cgt-arm_18.12.3.LTS/include/_ti_config.h
+OSFILES/os.obj: /home/satish/ti/ccs920/ccs/tools/compiler/ti-cgt-arm_18.12.3.LTS/include/linkage.h
+OSFILES/os.obj: /home/satish/ti/ccs920/ccs/tools/compiler/ti-cgt-arm_18.12.3.LTS/include/stdarg.h
 OSFILES/os.obj: /home/satish/workspace_v9/embssystems_practice/INCLUDE/sys_init.h
 OSFILES/os.obj: /home/satish/workspace_v9/embssystems_practice/INCLUDE/api.h
 OSFILES/os.obj: /home/satish/workspace_v9/embssystems_practice/tm4c123gh6pm.h
@@ -24,6 +28,10 @@ OSFILES/os.obj: /home/satish/workspace_v9/embssystems_practice/tm4c123gh6pm.h
 /home/satish/ti/ccs920/ccs/tools/compiler/ti-cgt-arm_18.12.3.LTS/include/machine/_types.h: 
 /home/satish/ti/ccs920/ccs/tools/compiler/ti-cgt-arm_18.12.3.LTS/include/machine/_stdint.h: 
 /home/satish/ti/ccs920/ccs/tools/compiler/ti-cgt-arm_18.12.3.LTS/include/sys/_stdint.h: 
+/home/satish/ti/ccs920/ccs/tools/compiler/ti-cgt-arm_18.12.3.LTS/include/stdio.h: 
+/home/satish/ti/ccs920/ccs/tools/compiler/ti-cgt-arm_18.12.3.LTS/include/_ti_config.h: 
+/home/satish/ti/ccs920/ccs/tools/compiler/ti-cgt-arm_18.12.3.LTS/include/linkage.h: 
+/home/satish/ti/ccs920/ccs/tools/compiler/ti-cgt-arm_18.12.3.LTS/include/stdarg.h: 
 /home/satish/workspace_v9/embssystems_practice/INCLUDE/sys_init.h: 
 /home/satish/workspace_v9/embssystems_practice/INCLUDE/api.h: 
 /home/satish/workspace_v9/embssystems_practice/tm4c123gh6pm.h: 

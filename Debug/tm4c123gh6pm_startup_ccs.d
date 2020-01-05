@@ -10,6 +10,10 @@ tm4c123gh6pm_startup_ccs.obj: /home/satish/ti/ccs920/ccs/tools/compiler/ti-cgt-a
 tm4c123gh6pm_startup_ccs.obj: /home/satish/ti/ccs920/ccs/tools/compiler/ti-cgt-arm_18.12.3.LTS/include/machine/_stdint.h
 tm4c123gh6pm_startup_ccs.obj: /home/satish/ti/ccs920/ccs/tools/compiler/ti-cgt-arm_18.12.3.LTS/include/sys/_stdint.h
 tm4c123gh6pm_startup_ccs.obj: /home/satish/workspace_v9/embssystems_practice/INCLUDE/os.h
+tm4c123gh6pm_startup_ccs.obj: /home/satish/ti/ccs920/ccs/tools/compiler/ti-cgt-arm_18.12.3.LTS/include/stdio.h
+tm4c123gh6pm_startup_ccs.obj: /home/satish/ti/ccs920/ccs/tools/compiler/ti-cgt-arm_18.12.3.LTS/include/_ti_config.h
+tm4c123gh6pm_startup_ccs.obj: /home/satish/ti/ccs920/ccs/tools/compiler/ti-cgt-arm_18.12.3.LTS/include/linkage.h
+tm4c123gh6pm_startup_ccs.obj: /home/satish/ti/ccs920/ccs/tools/compiler/ti-cgt-arm_18.12.3.LTS/include/stdarg.h
 tm4c123gh6pm_startup_ccs.obj: /home/satish/workspace_v9/embssystems_practice/INCLUDE/sys_init.h
 tm4c123gh6pm_startup_ccs.obj: /home/satish/workspace_v9/embssystems_practice/INCLUDE/api.h
 tm4c123gh6pm_startup_ccs.obj: /home/satish/workspace_v9/embssystems_practice/tm4c123gh6pm.h
@@ -24,6 +28,10 @@ tm4c123gh6pm_startup_ccs.obj: /home/satish/workspace_v9/embssystems_practice/tm4
 /home/satish/ti/ccs920/ccs/tools/compiler/ti-cgt-arm_18.12.3.LTS/include/machine/_stdint.h: 
 /home/satish/ti/ccs920/ccs/tools/compiler/ti-cgt-arm_18.12.3.LTS/include/sys/_stdint.h: 
 /home/satish/workspace_v9/embssystems_practice/INCLUDE/os.h: 
+/home/satish/ti/ccs920/ccs/tools/compiler/ti-cgt-arm_18.12.3.LTS/include/stdio.h: 
+/home/satish/ti/ccs920/ccs/tools/compiler/ti-cgt-arm_18.12.3.LTS/include/_ti_config.h: 
+/home/satish/ti/ccs920/ccs/tools/compiler/ti-cgt-arm_18.12.3.LTS/include/linkage.h: 
+/home/satish/ti/ccs920/ccs/tools/compiler/ti-cgt-arm_18.12.3.LTS/include/stdarg.h: 
 /home/satish/workspace_v9/embssystems_practice/INCLUDE/sys_init.h: 
 /home/satish/workspace_v9/embssystems_practice/INCLUDE/api.h: 
 /home/satish/workspace_v9/embssystems_practice/tm4c123gh6pm.h: 
