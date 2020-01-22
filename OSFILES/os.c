@@ -4,7 +4,7 @@ uint16_t task_mask;
 uint16_t task_mask_p1;
 const uint16_t task_mask_limit = (sizeof(sch1)/sizeof(sch1[0]));
 uint32_t oscounterincrement_1ms;
-uint16_t os_normal_task_count[total_taskcount] = {0};
+uint64_t os_normal_task_count[total_taskcount] = {0};
 taskrateindex task_switcher;
 uint32_t count;
 uint32_t counter_lock = 0;

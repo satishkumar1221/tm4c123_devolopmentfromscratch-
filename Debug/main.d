@@ -16,6 +16,7 @@ main.obj: /home/satish/ti/ccs920/ccs/tools/compiler/ti-cgt-arm_18.12.3.LTS/inclu
 main.obj: /home/satish/ti/ccs920/ccs/tools/compiler/ti-cgt-arm_18.12.3.LTS/include/sys/_stdint.h
 main.obj: /home/satish/workspace_v9/embssystems_practice/INCLUDE/sys_init.h
 main.obj: /home/satish/workspace_v9/embssystems_practice/tm4c123gh6pm.h
+main.obj: /home/satish/workspace_v9/embssystems_practice/INCLUDE/constdata_gpio.h
 main.obj: /home/satish/workspace_v9/embssystems_practice/INCLUDE/os.h
 main.obj: /home/satish/workspace_v9/embssystems_practice/INCLUDE/sys_init.h
 
@@ -35,5 +36,6 @@ main.obj: /home/satish/workspace_v9/embssystems_practice/INCLUDE/sys_init.h
 /home/satish/ti/ccs920/ccs/tools/compiler/ti-cgt-arm_18.12.3.LTS/include/sys/_stdint.h: 
 /home/satish/workspace_v9/embssystems_practice/INCLUDE/sys_init.h: 
 /home/satish/workspace_v9/embssystems_practice/tm4c123gh6pm.h: 
+/home/satish/workspace_v9/embssystems_practice/INCLUDE/constdata_gpio.h: 
 /home/satish/workspace_v9/embssystems_practice/INCLUDE/os.h: 
 /home/satish/workspace_v9/embssystems_practice/INCLUDE/sys_init.h: 

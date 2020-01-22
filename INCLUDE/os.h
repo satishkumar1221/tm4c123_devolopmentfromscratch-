@@ -62,7 +62,7 @@ extern const uint16_t task_mask_limit;
 extern uint32_t oscounterincrement_1ms;
 extern uint16_t task_mask_p1;
 extern taskrateindex  task_switcher;
-extern uint16_t os_normal_task_count[total_taskcount];
+extern uint64_t os_normal_task_count[total_taskcount];
 extern const scheduler sch1[5];
 extern uint32_t count;
 extern uint32_t counter_lock;

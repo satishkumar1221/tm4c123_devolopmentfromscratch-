@@ -17,6 +17,7 @@ OSFILES/os.obj: /home/satish/ti/ccs920/ccs/tools/compiler/ti-cgt-arm_18.12.3.LTS
 OSFILES/os.obj: /home/satish/workspace_v9/embssystems_practice/INCLUDE/sys_init.h
 OSFILES/os.obj: /home/satish/workspace_v9/embssystems_practice/INCLUDE/api.h
 OSFILES/os.obj: /home/satish/workspace_v9/embssystems_practice/tm4c123gh6pm.h
+OSFILES/os.obj: /home/satish/workspace_v9/embssystems_practice/INCLUDE/constdata_gpio.h
 
 ../OSFILES/os.c: 
 /home/satish/workspace_v9/embssystems_practice/INCLUDE/os.h: 
@@ -35,3 +36,4 @@ OSFILES/os.obj: /home/satish/workspace_v9/embssystems_practice/tm4c123gh6pm.h
 /home/satish/workspace_v9/embssystems_practice/INCLUDE/sys_init.h: 
 /home/satish/workspace_v9/embssystems_practice/INCLUDE/api.h: 
 /home/satish/workspace_v9/embssystems_practice/tm4c123gh6pm.h: 
+/home/satish/workspace_v9/embssystems_practice/INCLUDE/constdata_gpio.h: 

@@ -10,6 +10,7 @@ GEN_CMDS__FLAG :=
 ORDERED_OBJS += \
 "./main.obj" \
 "./tm4c123gh6pm_startup_ccs.obj" \
+"./DATA_CONST/constdata_gpioconfig.obj" \
 "./OSFILES/os.obj" \
 "./SOURCE/sys_init.obj" \
 "../tm4c123gh6pm.cmd" \
@@ -24,9 +25,11 @@ RMDIR := rm -rf
 # All of the sources participating in the build are defined here
 -include sources.mk
 -include subdir_vars.mk
+-include DATA_CONST/subdir_vars.mk
 -include OSFILES/subdir_vars.mk
 -include SOURCE/subdir_vars.mk
 -include subdir_rules.mk
+-include DATA_CONST/subdir_rules.mk
 -include OSFILES/subdir_rules.mk
 -include SOURCE/subdir_rules.mk
 -include objects.mk
@@ -159,8 +162,8 @@ embssystems_practice.hex: $(EXE_OUTPUTS)
 # Other Targets
 clean:
 	-$(RM) $(BIN_OUTPUTS__QUOTED)$(EXE_OUTPUTS__QUOTED)
-	-$(RM) "main.obj" "tm4c123gh6pm_startup_ccs.obj" "OSFILES/os.obj" "SOURCE/sys_init.obj" 
-	-$(RM) "main.d" "tm4c123gh6pm_startup_ccs.d" "OSFILES/os.d" "SOURCE/sys_init.d" 
+	-$(RM) "main.obj" "tm4c123gh6pm_startup_ccs.obj" "DATA_CONST/constdata_gpioconfig.obj" "OSFILES/os.obj" "SOURCE/sys_init.obj" 
+	-$(RM) "main.d" "tm4c123gh6pm_startup_ccs.d" "DATA_CONST/constdata_gpioconfig.d" "OSFILES/os.d" "SOURCE/sys_init.d" 
 	-@echo 'Finished clean'
 	-@echo ' '
 

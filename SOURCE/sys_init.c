@@ -1,5 +1,16 @@
 #include "sys_init.h"
 
+#define SET_PORTE_PORTS_OUTPUTS 0x07u
+
+static void  initlize_portA_peripherals(); 
+static void initlize_portB_peripherals(); 
+static void initilizeportC_peripherals(); 
+static void initilizeportD_peripherals(); 
+static void initilizeportE_peripherals();
+static void initilizeportF_peripherals();
+
+
+
 void initilize_rcc_registers()
 {
 /*configure bit by bit*/
@@ -22,6 +33,7 @@ void initilize_rcc_registers()
   //take default to be 0 RCC2 not used as of now // initial devolopment phase
 
 }
+
 /*Override RCC registers*/
 void intilize_rcc2_registers()
 {
@@ -32,10 +44,58 @@ void intilize_rcc2_registers()
 
 }
 
+void unlock_portf()
+{
+
+}
+
+void initilize_gpio()
+{
+    //Enable clock to the GPIO  PINS from the RCGC GPIO register
+    SYSCTL_RCGCGPIO_R = (SYSCTL_RCGCGPIO_R0 | SYSCTL_RCGCGPIO_R1 | SYSCTL_RCGCGPIO_R2 | SYSCTL_RCGCGPIO_R3 | SYSCTL_RCGCGPIO_R4 | SYSCTL_RCGCGPIO_R5);
+    //unlock_portf();
+    initlize_portA_peripherals(); 
+    initlize_portB_peripherals();
+    initilizeportC_peripherals(); 
+    initilizeportD_peripherals(); 
+    initilizeportE_peripherals();
+    initilizeportF_peripherals();
+    
+    //GPIO_PORTA_DIR_R =
+    //Set the GPIO DIR Register
+    //Set the port B and Port D register as inputs just for visulixation
+    GPIO_PORTB_DIR_R = (0<<4);
+    GPIO_PORTD_DIR_R = (0<<7);
+    GPIO_PORTE_DIR_R = 0x07u; /*port E is completely configured to be output*/
+    /*port A is used for wakeup imnputs */
+
+    //Set the port E register as outputs
+    GPIO_PORTE_DIR_R = SET_PORTE_PORTS_OUTPUTS;
+    //set the AFSEL register
+}   // GPIO_PORTA_AFSEL_R
+void initilize_dma()
+{
+
+}
+
+void initilize_pwm()
+{
+
+}
+
+void initilizea2d()
+{
+
+}
+
 void sys_init()
 {
     system_clkregister_initilize(); 
     systick_initlize();
+    initilize_gpio(); 
+    //initlize_spi();
+    initilize_dma();
+    //initilize_i2c();
 }
 
 void system_clkregister_initilize()
@@ -50,7 +110,7 @@ void systick_initlize()
    //Initilize ST_Reload Register//
     /*The formula to calculate st_reload register is  given below*/
     /* ST_RELOAD = ( CClk / ticks ) -1  // CClk is the system clock and ticks is number per second. 1 ms is 1000 ticks
-     * hence ST_RELOAD = ((16.384*1066)/1000)-1 = 16383
+     * hence ST_RELOAD = ((16.384*10^6)/1000)-1 = 16383
      *
      * )
      * */
@@ -67,7 +127,68 @@ void systick_initlize()
 
 }
 
-void powerdown_sequence()
+
+/*All the GPIO ports initlization sequence */
+
+static void  initlize_portA_peripherals()
 {
-    /*On the powerdown disable the phase locked loop*/
+      /*port A6 and port A7 will be configured as the digital inputs*/
+      /*We are not writing the values for SSI becoause it is a dont care combination */
+      GPIO_PORTA_DIR_R = (gpio_pin_spec[0].gpio_dir << 6)  /*| (gpio_pin_spec[0].gpio_dir <<1)*/; 
+      /*Configure AFSEL register */
+      GPIO_PORTA_AFSEL_R = ((gpio_pin_spec[0].afsel_setup <<6) /*| (gpio_pin_spec[0].afsel_setup <<1)*/ | 
+                             /*SSI setup */
+                            (gpio_pin_spec[30].afsel_setup <<2) | (gpio_pin_spec[30].afsel_setup <<3) | (gpio_pin_spec[30].afsel_setup <<4) | (gpio_pin_spec[30].afsel_setup <<5) |
+                             /*set up UART config as well */
+                             (gpio_pin_spec[30].afsel_setup) |  (gpio_pin_spec[30].afsel_setup << 1));
+                            /*Set the drive strength of the gpio pin */    
+                            
+      GPIO_PORTA_DR4R_R = ((gpio_pin_spec[0].drive_4mA_out <<6) /*| (gpio_pin_spec[0].digital_enable <<1)*/ | 
+                             /*SSI setup */
+                            (gpio_pin_spec[30].drive_4mA_out <<2) | (gpio_pin_spec[30].drive_4mA_out <<3) | (gpio_pin_spec[30].drive_4mA_out <<4) | (gpio_pin_spec[30].drive_4mA_out <<5) | (gpio_pin_spec[30].drive_4mA_out <<1));   
+      /*Set up pull up or pull down configuration */
+      GPIO_PORTA_PDR_R = ((gpio_pin_spec[0].pull_down_activate <<6) /*| (gpio_pin_spec[0].pull_down_activate <<1)*/ | 
+                             /*SSI setup */
+                            (gpio_pin_spec[30].pull_down_activate <<2) | (gpio_pin_spec[30].pull_down_activate <<3) 
+                            | (gpio_pin_spec[30].pull_down_activate <<4) | (gpio_pin_spec[30].pull_down_activate <<5) | (gpio_pin_spec[30].pull_down_activate <<1));
+     /*Set up digital enable register */
+      GPIO_PORTA_DEN_R = ((gpio_pin_spec[0].digital_enable <<6) | /*(gpio_pin_spec[0].digital_enable <<1)*/  
+                             /*SSI setup */
+                            (gpio_pin_spec[30].digital_enable <<2) | (gpio_pin_spec[30].digital_enable <<3) 
+                            | (gpio_pin_spec[30].digital_enable <<4) | (gpio_pin_spec[30].digital_enable <<5) | (gpio_pin_spec[30].digital_enable <<1));
+    /*GPIOAMSEL set it to 0*/
+    /*No need to unlock the gpio*/
+
+}
+static void initlize_portB_peripherals()
+{
+//    GPIO_PORTA_DIR_R =
+
+}
+static void initilizeportC_peripherals(){} 
+static void initilizeportD_peripherals()
+{
+    /* initilize for i2c */
+    GPIO_PORTD_AFSEL_R  = ((gpio_pin_spec[8].afsel_setup <<2) | (gpio_pin_spec[8].afsel_setup <<1));
+    GPIO_PORTD_DR4R_R = ((gpio_pin_spec[8].drive_4mA_out <<2) | (gpio_pin_spec[8].drive_4mA_out <<1));
+    GPIO_PORTD_PDR_R =  ((gpio_pin_spec[8].pull_down_activate <<2) | (gpio_pin_spec[8].pull_down_activate <<1));
+    GPIO_PORTD_DEN_R  =  ((gpio_pin_spec[8].digital_enable <<2) | (gpio_pin_spec[8].digital_enable <<1));
+      
+}
+static void initilizeportE_peripherals(){}
+static void initilizeportF_peripherals()
+{
+   /*Unlock Port F*/
+
+   /*PORT F Configuration */
+
+    GPIO_PORTF_AFSEL_R  = ((gpio_pin_spec[8].afsel_setup <<2) | (gpio_pin_spec[8].afsel_setup <<1));
+    GPIO_PORTF_DR4R_R = ((gpio_pin_spec[8].drive_4mA_out <<2) | (gpio_pin_spec[8].drive_4mA_out <<1));
+    GPIO_PORTF_PDR_R =  ((gpio_pin_spec[8].pull_down_activate <<2) | (gpio_pin_spec[8].pull_down_activate <<1));
+    GPIO_PORTF_DEN_R  =  ((gpio_pin_spec[8].digital_enable <<2) | (gpio_pin_spec[8].digital_enable <<1));
+    
+}
+
+void powerdown_sequence()
+{    /*On the powerdown disable the phase locked loop*/
 }
