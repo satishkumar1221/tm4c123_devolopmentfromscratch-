@@ -17,16 +17,16 @@ const gpio_config gpio_pin_spec[] =
   {0, 0 , 0 , 1 , 0 , 0 , 1 ,0 ,0 ,0 }, //1
   /*config for digital input lookuptable with open drain output and 2mA */
   {0, 1 , 1 , 1 , 0 , 0 , 1 ,0 ,0 ,0 }, //2
-  /*config for digital input lookuptable with open drain output and 4ma*/
-  {0, 1 , 1 , 1 , 0 , 0 , 0 ,1 ,0 ,0 }, //3
+  /*config for digital output lookuptable with pull down resistor and 4ma*/
+  {0, 1 , 1 , 1 , 0 , 1, 0 ,1 ,0 ,0 }, //3
   /*config for digital input lookuptable with open drain output and 8ma*/
    {0, 1 , 1 , 1 , 0 , 0 , 0 ,0 ,1 ,0 }, //4
-  /*config pins  for i2c with pullup config  */
-   {1, 0 , 0 , 1 , 1 , 0 , 0 , 0, 0,0 }, //5
-    /*config pins  for i2c with pullup config slew rate enabled  */
-   {1, 0 , 0 , 1 , 1 , 0 , 0 , 0, 0,1 }, //6
-   /*config pins  for i2c with pulldown config  */
-   {1, 0 , 0 , 1 , 0 , 1 , 0 , 0, 0,0 }, //7
+  /*config pins  for i2c with pullup  2ma config  */
+   {1, 0 , 0 , 1 , 1 , 0 , 1 ,0 , 0,0 }, //5
+    /*config pins  for i2c with pullup config slew rate enabled 4ma   */
+   {1, 0 , 1 , 1 , 0 , 1 , 0 , 1, 0,1 }, //6 perfect i2c config 
+   /*config pins  for i2c with pulldown config 8ma   */
+   {1, 0 , 0 , 1 , 0 , 1 , 0 , 0, 1,0 }, //7
    /*config pins  for i2c with pulldown config slew rate enabled  */
    {1, 0 , 0 , 1 , 0 , 1 , 0 , 0, 0,1 }, //8
    /*config pins for digital input timer with pullup config  */

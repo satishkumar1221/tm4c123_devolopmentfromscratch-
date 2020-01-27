@@ -18,6 +18,8 @@ OSFILES/os.obj: /home/satish/workspace_v9/embssystems_practice/INCLUDE/sys_init.
 OSFILES/os.obj: /home/satish/workspace_v9/embssystems_practice/INCLUDE/api.h
 OSFILES/os.obj: /home/satish/workspace_v9/embssystems_practice/tm4c123gh6pm.h
 OSFILES/os.obj: /home/satish/workspace_v9/embssystems_practice/INCLUDE/constdata_gpio.h
+OSFILES/os.obj: /home/satish/workspace_v9/embssystems_practice/INCLUDE/i2c.h
+OSFILES/os.obj: /home/satish/workspace_v9/embssystems_practice/INCLUDE/exception_handlers.h
 
 ../OSFILES/os.c: 
 /home/satish/workspace_v9/embssystems_practice/INCLUDE/os.h: 
@@ -37,3 +39,5 @@ OSFILES/os.obj: /home/satish/workspace_v9/embssystems_practice/INCLUDE/constdata
 /home/satish/workspace_v9/embssystems_practice/INCLUDE/api.h: 
 /home/satish/workspace_v9/embssystems_practice/tm4c123gh6pm.h: 
 /home/satish/workspace_v9/embssystems_practice/INCLUDE/constdata_gpio.h: 
+/home/satish/workspace_v9/embssystems_practice/INCLUDE/i2c.h: 
+/home/satish/workspace_v9/embssystems_practice/INCLUDE/exception_handlers.h: 

@@ -115,4 +115,5 @@ SUBDIRS := \
 DATA_CONST \
 OSFILES \
 SOURCE \
+driver_libraries \
 
