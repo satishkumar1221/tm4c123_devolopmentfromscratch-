@@ -67,6 +67,7 @@ extern const scheduler sch1[5];
 extern uint32_t count;
 extern uint32_t counter_lock;
 extern uint32_t count_test[5];
+extern uint64_t freerunningcounter;
 void start_os();
 void cooperative_scheduler();
 
@@ -92,6 +93,7 @@ inline void os_tick_reset()
     else
     {
         oscounterincrement_1ms++;
+        freerunningcounter++;
     }
 
 }

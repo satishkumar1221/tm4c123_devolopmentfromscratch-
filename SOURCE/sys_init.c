@@ -97,7 +97,7 @@ void sys_init()
     initilize_dma();
     /*or the enumerations given in i2c.h to activate the required modules
       In this case I am activatiog 0 and 1   */
-    intilize_general_purpose_timer();
+    //intilize_general_purpose_timer();
     initilize_i2c_structure();
     //initilize_i2c();
 }

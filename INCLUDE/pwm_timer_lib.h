@@ -9,9 +9,19 @@
 #define INCLUDE_PWM_TIMER_LIB_H_
 
 #include "tm4c123gh6pm.h"
+
+
+typedef enum
+{
+    single_shot_mode = 0x01,
+    periodicmode
+}timer_config;
+
+
 void intilize_general_purpose_timer();
-void starttimer();
+void starttimer(uint32_t delay , timer_config config);
 uint8_t timeout_reached();
+
 
 
 #endif /* INCLUDE_PWM_TIMER_LIB_H_ */

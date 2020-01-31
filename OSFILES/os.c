@@ -9,6 +9,7 @@ taskrateindex task_switcher;
 uint32_t count;
 uint32_t counter_lock = 0;
 uint32_t count_test[5];
+uint64_t freerunningcounter;
 taskrate prev = maxtask;
 uint32_t global_trigger;
 const scheduler sch1[5] =
