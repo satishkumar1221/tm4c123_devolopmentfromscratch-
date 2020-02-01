@@ -12,6 +12,7 @@ driver_libraries/i2c.obj: /home/satish/ti/ccs920/ccs/tools/compiler/ti-cgt-arm_1
 driver_libraries/i2c.obj: /home/satish/ti/ccs920/ccs/tools/compiler/ti-cgt-arm_18.12.3.LTS/include/sys/_stdint.h
 driver_libraries/i2c.obj: /home/satish/workspace_v9/embssystems_practice/tm4c123gh6pm.h
 driver_libraries/i2c.obj: /home/satish/workspace_v9/embssystems_practice/INCLUDE/exception_handlers.h
+driver_libraries/i2c.obj: /home/satish/workspace_v9/embssystems_practice/Diagnostics/diagnostic_manager.h
 
 ../driver_libraries/i2c.c: 
 /home/satish/workspace_v9/embssystems_practice/INCLUDE/i2c.h: 
@@ -25,3 +26,4 @@ driver_libraries/i2c.obj: /home/satish/workspace_v9/embssystems_practice/INCLUDE
 /home/satish/ti/ccs920/ccs/tools/compiler/ti-cgt-arm_18.12.3.LTS/include/sys/_stdint.h: 
 /home/satish/workspace_v9/embssystems_practice/tm4c123gh6pm.h: 
 /home/satish/workspace_v9/embssystems_practice/INCLUDE/exception_handlers.h: 
+/home/satish/workspace_v9/embssystems_practice/Diagnostics/diagnostic_manager.h: 

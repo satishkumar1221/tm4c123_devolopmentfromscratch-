@@ -98,8 +98,10 @@ void sys_init()
     /*or the enumerations given in i2c.h to activate the required modules
       In this case I am activatiog 0 and 1   */
     //intilize_general_purpose_timer();
+    eeprom_driver_init();
     initilize_i2c_structure();
     //initilize_i2c();
+
 }
 
 

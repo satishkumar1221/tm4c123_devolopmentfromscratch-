@@ -54,7 +54,7 @@ const scheduler sch1[5] =
  }
 
  void task_1ms(){os_normal_task_count[task1]++;}
-void task_5ms(){os_normal_task_count[task5]++;}
+void task_5ms(){os_normal_task_count[task5]++; }
 void task_10ms(){os_normal_task_count[task10]++;}
 void task_20ms(){os_normal_task_count[task20]++;}
 void task_100ms(){os_normal_task_count[task100]++;}

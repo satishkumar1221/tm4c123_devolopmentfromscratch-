@@ -11,11 +11,14 @@ ORDERED_OBJS += \
 "./main.obj" \
 "./tm4c123gh6pm_startup_ccs.obj" \
 "./DATA_CONST/constdata_gpioconfig.obj" \
+"./Diagnostics/diagnostic_manager.obj" \
 "./OSFILES/os.obj" \
 "./SOURCE/exception_handlers.obj" \
 "./SOURCE/sys_init.obj" \
+"./driver_libraries/eeprom_mngr.obj" \
 "./driver_libraries/i2c.obj" \
 "./driver_libraries/pwm_timer_lib.obj" \
+"./driver_libraries/rtc.obj" \
 "../tm4c123gh6pm.cmd" \
 $(GEN_CMDS__FLAG) \
 -llibc.a \
@@ -29,11 +32,13 @@ RMDIR := rm -rf
 -include sources.mk
 -include subdir_vars.mk
 -include DATA_CONST/subdir_vars.mk
+-include Diagnostics/subdir_vars.mk
 -include OSFILES/subdir_vars.mk
 -include SOURCE/subdir_vars.mk
 -include driver_libraries/subdir_vars.mk
 -include subdir_rules.mk
 -include DATA_CONST/subdir_rules.mk
+-include Diagnostics/subdir_rules.mk
 -include OSFILES/subdir_rules.mk
 -include SOURCE/subdir_rules.mk
 -include driver_libraries/subdir_rules.mk
@@ -167,8 +172,8 @@ embssystems_practice.hex: $(EXE_OUTPUTS)
 # Other Targets
 clean:
 	-$(RM) $(BIN_OUTPUTS__QUOTED)$(EXE_OUTPUTS__QUOTED)
-	-$(RM) "main.obj" "tm4c123gh6pm_startup_ccs.obj" "DATA_CONST/constdata_gpioconfig.obj" "OSFILES/os.obj" "SOURCE/exception_handlers.obj" "SOURCE/sys_init.obj" "driver_libraries/i2c.obj" "driver_libraries/pwm_timer_lib.obj" 
-	-$(RM) "main.d" "tm4c123gh6pm_startup_ccs.d" "DATA_CONST/constdata_gpioconfig.d" "OSFILES/os.d" "SOURCE/exception_handlers.d" "SOURCE/sys_init.d" "driver_libraries/i2c.d" "driver_libraries/pwm_timer_lib.d" 
+	-$(RM) "main.obj" "tm4c123gh6pm_startup_ccs.obj" "DATA_CONST/constdata_gpioconfig.obj" "Diagnostics/diagnostic_manager.obj" "OSFILES/os.obj" "SOURCE/exception_handlers.obj" "SOURCE/sys_init.obj" "driver_libraries/eeprom_mngr.obj" "driver_libraries/i2c.obj" "driver_libraries/pwm_timer_lib.obj" "driver_libraries/rtc.obj" 
+	-$(RM) "main.d" "tm4c123gh6pm_startup_ccs.d" "DATA_CONST/constdata_gpioconfig.d" "Diagnostics/diagnostic_manager.d" "OSFILES/os.d" "SOURCE/exception_handlers.d" "SOURCE/sys_init.d" "driver_libraries/eeprom_mngr.d" "driver_libraries/i2c.d" "driver_libraries/pwm_timer_lib.d" "driver_libraries/rtc.d" 
 	-@echo 'Finished clean'
 	-@echo ' '
 

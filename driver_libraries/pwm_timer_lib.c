@@ -23,7 +23,7 @@ void intilize_general_purpose_timer()
    //TIMER0_ICR_R = 0x00;
 }
 
-inline void stopttimer()
+void stopttimer()
 {
 
     TIMER0_CTL_R = (TIMER0_CTL_R & clear_timer_enable);

@@ -20,6 +20,9 @@ main.obj: /home/satish/workspace_v9/embssystems_practice/INCLUDE/constdata_gpio.
 main.obj: /home/satish/workspace_v9/embssystems_practice/INCLUDE/i2c.h
 main.obj: /home/satish/workspace_v9/embssystems_practice/INCLUDE/exception_handlers.h
 main.obj: /home/satish/workspace_v9/embssystems_practice/INCLUDE/pwm_timer_lib.h
+main.obj: /home/satish/workspace_v9/embssystems_practice/INCLUDE/eeprom.h
+main.obj: /home/satish/workspace_v9/embssystems_practice/INCLUDE/sys_init.h
+main.obj: /home/satish/workspace_v9/embssystems_practice/INCLUDE/eeprom.h
 main.obj: /home/satish/workspace_v9/embssystems_practice/INCLUDE/os.h
 main.obj: /home/satish/workspace_v9/embssystems_practice/INCLUDE/sys_init.h
 
@@ -43,5 +46,8 @@ main.obj: /home/satish/workspace_v9/embssystems_practice/INCLUDE/sys_init.h
 /home/satish/workspace_v9/embssystems_practice/INCLUDE/i2c.h: 
 /home/satish/workspace_v9/embssystems_practice/INCLUDE/exception_handlers.h: 
 /home/satish/workspace_v9/embssystems_practice/INCLUDE/pwm_timer_lib.h: 
+/home/satish/workspace_v9/embssystems_practice/INCLUDE/eeprom.h: 
+/home/satish/workspace_v9/embssystems_practice/INCLUDE/sys_init.h: 
+/home/satish/workspace_v9/embssystems_practice/INCLUDE/eeprom.h: 
 /home/satish/workspace_v9/embssystems_practice/INCLUDE/os.h: 
 /home/satish/workspace_v9/embssystems_practice/INCLUDE/sys_init.h: 

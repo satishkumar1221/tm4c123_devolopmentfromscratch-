@@ -113,6 +113,7 @@ PDE_DEPS__QUOTED :=
 SUBDIRS := \
 . \
 DATA_CONST \
+Diagnostics \
 OSFILES \
 SOURCE \
 driver_libraries \

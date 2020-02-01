@@ -3,7 +3,11 @@
 #include "pwm_timer_lib.h"
 #define i2c_busy 0x01
 #define time_out_configuredvalue  0x320000
+#include "diagnostic_manager.h"
+/*Register access */
+#define APIINT (*(volatile uint32_t*)0xE000ED0C)
 uint32_t timercount;
+//#define systemreset  0x04
 void disable_interrupts()
 {
     // Added tab before CPSID for compiling without errors.
@@ -35,6 +39,18 @@ void i2c_exception_handler(uint32_t *MSR_Status)
               *MSR_Status  =  0x04;
               timercount=0;
               stopttimer();
+              testfaillogic(I2C_Fault);
           }
     }
 }
+
+void systemresetfunction()
+{
+    /*confirmed error so unlock the system reset register */
+    APIINT = (NVIC_APINT_VECTKEY | NVIC_APINT_SYSRESETREQ);
+}
+
+void corereset()
+{
+     APIINT = (NVIC_APINT_VECTKEY | 0x01);
+} 

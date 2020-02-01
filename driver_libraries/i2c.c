@@ -5,7 +5,7 @@
  *      Author: satish
  */
 #include "i2c.h"
-
+#include "diagnostic_manager.h"
 //#define bitset_find (pim) (pim &0xFF) 
 const i2c_port_pin_config_table tbl[] =
 {

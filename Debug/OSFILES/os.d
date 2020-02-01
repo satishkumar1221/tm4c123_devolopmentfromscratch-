@@ -20,6 +20,10 @@ OSFILES/os.obj: /home/satish/workspace_v9/embssystems_practice/tm4c123gh6pm.h
 OSFILES/os.obj: /home/satish/workspace_v9/embssystems_practice/INCLUDE/constdata_gpio.h
 OSFILES/os.obj: /home/satish/workspace_v9/embssystems_practice/INCLUDE/i2c.h
 OSFILES/os.obj: /home/satish/workspace_v9/embssystems_practice/INCLUDE/exception_handlers.h
+OSFILES/os.obj: /home/satish/workspace_v9/embssystems_practice/INCLUDE/pwm_timer_lib.h
+OSFILES/os.obj: /home/satish/workspace_v9/embssystems_practice/INCLUDE/eeprom.h
+OSFILES/os.obj: /home/satish/workspace_v9/embssystems_practice/INCLUDE/sys_init.h
+OSFILES/os.obj: /home/satish/workspace_v9/embssystems_practice/INCLUDE/eeprom.h
 
 ../OSFILES/os.c: 
 /home/satish/workspace_v9/embssystems_practice/INCLUDE/os.h: 
@@ -41,3 +45,7 @@ OSFILES/os.obj: /home/satish/workspace_v9/embssystems_practice/INCLUDE/exception
 /home/satish/workspace_v9/embssystems_practice/INCLUDE/constdata_gpio.h: 
 /home/satish/workspace_v9/embssystems_practice/INCLUDE/i2c.h: 
 /home/satish/workspace_v9/embssystems_practice/INCLUDE/exception_handlers.h: 
+/home/satish/workspace_v9/embssystems_practice/INCLUDE/pwm_timer_lib.h: 
+/home/satish/workspace_v9/embssystems_practice/INCLUDE/eeprom.h: 
+/home/satish/workspace_v9/embssystems_practice/INCLUDE/sys_init.h: 
+/home/satish/workspace_v9/embssystems_practice/INCLUDE/eeprom.h: 
