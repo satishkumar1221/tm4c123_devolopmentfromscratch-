@@ -14,7 +14,27 @@
 #define time_out_configuredvalue1  0x320000
 
 eeprom_status eeprom_init_stat;
+eeprom_struct eeprom_access;
+
+/*Prototypes */
 static eeprom_status poll_check_eeprom_status();
+ 
+static void initlize_eeprom_struct();
+
+
+static void initlize_eeprom_struct()
+{
+   eeprom_access.access_struct.block_number = 0x01;              
+   eeprom_access.access_struct.ee_offset_value = 0x00;
+   eeprom_access.pwd_protected.password_protected_status = FALSE;
+   eeprom_access. data_cpd_rcvd_eeprom. ptr_fault_array = &Fault_Info;
+   eeprom_access. data_cpd_rcvd_eeprom. ptr_warmup_cycles = &warm_up_cycles;
+   eeprom_access. data_cpd_rcvd_eeprom. ptr_malfunctionrepeated = &malfunctiontimes;
+}
+   
+//static void storedatatoeeprom()
+
+/*Function Defanitions*/
 
 static eeprom_status poll_check_eeprom_status()
 {
@@ -25,7 +45,6 @@ static eeprom_status poll_check_eeprom_status()
 
       while((EEPROM_EEDONE_R & EE_DONE_MASK))
       {
-//
 
           cpu_cyclesdelay(i,10);
 
@@ -69,7 +88,67 @@ void eeprom_driver_init()
           systemresetfunction();
       }
       eeprom_init_stat = temp_status;
-
+      initlize_eeprom_struct();
+      write_contents_toeeprom(&eeprom_access);
 
 }
+
+/*This function was written to push the data into interface register */
+/*Write a logic for multi block data and add a check for data check */
+void mem_copy(const void *source , const void *destination , uint32_t size)
+{
+    int i=0;
+    char *src = (char*)source;  
+    char *dst = (char *)destination;
+    for(i =0 ; i<size ; i++)
+    {
+        dst[i] =src[i];
+        i++;
+        EEPROM_EEOFFSET_R = i++;
+    }
+
+}
+
+/*Multiple Data Copy E2PROM */
+void write_contents_toeeprom(eeprom_struct *access_handle)
+{
+        /* Access the EEPROM Registers */
+        EEPROM_EEBLOCK_R = access_handle->access_struct.block_number;
+        EEPROM_EEOFFSET_R = access_handle->access_struct.ee_offset_value;
+        
+        if(access_handle->pwd_protected.password_protected_status)
+        {
+       
+        }
+        else
+        {
+            /* code */
+        }
+        if(!EEPROM_EEDONE_R)
+        {
+            mem_copy(&access_handle->data_cpd_rcvd_eeprom, EEPROM_EERDWR_R_ADDRINCR, sizeof(access_handle->data_cpd_rcvd_eeprom));
+        }
+        else
+        {
+            /* code */
+            testfaillogic(EEPROM_FAULT);
+        }
+        
+
+}
+
+/*void read_contents_from_eeprom()
+{
+
+}
+
+void lock_blocks_eeprom()
+{
+
+}
+
+void mass_erase_eeprom()
+{
+
+}*/
 

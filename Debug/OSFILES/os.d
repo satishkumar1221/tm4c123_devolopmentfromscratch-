@@ -24,6 +24,7 @@ OSFILES/os.obj: /home/satish/workspace_v9/embssystems_practice/INCLUDE/pwm_timer
 OSFILES/os.obj: /home/satish/workspace_v9/embssystems_practice/INCLUDE/eeprom.h
 OSFILES/os.obj: /home/satish/workspace_v9/embssystems_practice/INCLUDE/sys_init.h
 OSFILES/os.obj: /home/satish/workspace_v9/embssystems_practice/INCLUDE/eeprom.h
+OSFILES/os.obj: /home/satish/workspace_v9/embssystems_practice/Diagnostics/diagnostic_manager.h
 
 ../OSFILES/os.c: 
 /home/satish/workspace_v9/embssystems_practice/INCLUDE/os.h: 
@@ -49,3 +50,4 @@ OSFILES/os.obj: /home/satish/workspace_v9/embssystems_practice/INCLUDE/eeprom.h
 /home/satish/workspace_v9/embssystems_practice/INCLUDE/eeprom.h: 
 /home/satish/workspace_v9/embssystems_practice/INCLUDE/sys_init.h: 
 /home/satish/workspace_v9/embssystems_practice/INCLUDE/eeprom.h: 
+/home/satish/workspace_v9/embssystems_practice/Diagnostics/diagnostic_manager.h: 

@@ -23,6 +23,7 @@ main.obj: /home/satish/workspace_v9/embssystems_practice/INCLUDE/pwm_timer_lib.h
 main.obj: /home/satish/workspace_v9/embssystems_practice/INCLUDE/eeprom.h
 main.obj: /home/satish/workspace_v9/embssystems_practice/INCLUDE/sys_init.h
 main.obj: /home/satish/workspace_v9/embssystems_practice/INCLUDE/eeprom.h
+main.obj: /home/satish/workspace_v9/embssystems_practice/Diagnostics/diagnostic_manager.h
 main.obj: /home/satish/workspace_v9/embssystems_practice/INCLUDE/os.h
 main.obj: /home/satish/workspace_v9/embssystems_practice/INCLUDE/sys_init.h
 
@@ -49,5 +50,6 @@ main.obj: /home/satish/workspace_v9/embssystems_practice/INCLUDE/sys_init.h
 /home/satish/workspace_v9/embssystems_practice/INCLUDE/eeprom.h: 
 /home/satish/workspace_v9/embssystems_practice/INCLUDE/sys_init.h: 
 /home/satish/workspace_v9/embssystems_practice/INCLUDE/eeprom.h: 
+/home/satish/workspace_v9/embssystems_practice/Diagnostics/diagnostic_manager.h: 
 /home/satish/workspace_v9/embssystems_practice/INCLUDE/os.h: 
 /home/satish/workspace_v9/embssystems_practice/INCLUDE/sys_init.h: 

@@ -13,6 +13,7 @@ ORDERED_OBJS += \
 "./DATA_CONST/constdata_gpioconfig.obj" \
 "./Diagnostics/diagnostic_manager.obj" \
 "./OSFILES/os.obj" \
+"./OSFILES/preemptive_scheduler.obj" \
 "./SOURCE/exception_handlers.obj" \
 "./SOURCE/sys_init.obj" \
 "./driver_libraries/eeprom_mngr.obj" \
@@ -172,8 +173,8 @@ embssystems_practice.hex: $(EXE_OUTPUTS)
 # Other Targets
 clean:
 	-$(RM) $(BIN_OUTPUTS__QUOTED)$(EXE_OUTPUTS__QUOTED)
-	-$(RM) "main.obj" "tm4c123gh6pm_startup_ccs.obj" "DATA_CONST/constdata_gpioconfig.obj" "Diagnostics/diagnostic_manager.obj" "OSFILES/os.obj" "SOURCE/exception_handlers.obj" "SOURCE/sys_init.obj" "driver_libraries/eeprom_mngr.obj" "driver_libraries/i2c.obj" "driver_libraries/pwm_timer_lib.obj" "driver_libraries/rtc.obj" 
-	-$(RM) "main.d" "tm4c123gh6pm_startup_ccs.d" "DATA_CONST/constdata_gpioconfig.d" "Diagnostics/diagnostic_manager.d" "OSFILES/os.d" "SOURCE/exception_handlers.d" "SOURCE/sys_init.d" "driver_libraries/eeprom_mngr.d" "driver_libraries/i2c.d" "driver_libraries/pwm_timer_lib.d" "driver_libraries/rtc.d" 
+	-$(RM) "main.obj" "tm4c123gh6pm_startup_ccs.obj" "DATA_CONST/constdata_gpioconfig.obj" "Diagnostics/diagnostic_manager.obj" "OSFILES/os.obj" "OSFILES/preemptive_scheduler.obj" "SOURCE/exception_handlers.obj" "SOURCE/sys_init.obj" "driver_libraries/eeprom_mngr.obj" "driver_libraries/i2c.obj" "driver_libraries/pwm_timer_lib.obj" "driver_libraries/rtc.obj" 
+	-$(RM) "main.d" "tm4c123gh6pm_startup_ccs.d" "DATA_CONST/constdata_gpioconfig.d" "Diagnostics/diagnostic_manager.d" "OSFILES/os.d" "OSFILES/preemptive_scheduler.d" "SOURCE/exception_handlers.d" "SOURCE/sys_init.d" "driver_libraries/eeprom_mngr.d" "driver_libraries/i2c.d" "driver_libraries/pwm_timer_lib.d" "driver_libraries/rtc.d" 
 	-@echo 'Finished clean'
 	-@echo ' '
 

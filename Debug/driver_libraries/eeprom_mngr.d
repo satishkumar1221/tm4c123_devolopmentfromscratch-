@@ -18,6 +18,7 @@ driver_libraries/eeprom_mngr.obj: /home/satish/workspace_v9/embssystems_practice
 driver_libraries/eeprom_mngr.obj: /home/satish/workspace_v9/embssystems_practice/INCLUDE/i2c.h
 driver_libraries/eeprom_mngr.obj: /home/satish/workspace_v9/embssystems_practice/INCLUDE/exception_handlers.h
 driver_libraries/eeprom_mngr.obj: /home/satish/workspace_v9/embssystems_practice/INCLUDE/eeprom.h
+driver_libraries/eeprom_mngr.obj: /home/satish/workspace_v9/embssystems_practice/Diagnostics/diagnostic_manager.h
 
 ../driver_libraries/eeprom_mngr.c: 
 /home/satish/workspace_v9/embssystems_practice/INCLUDE/eeprom.h: 
@@ -37,3 +38,4 @@ driver_libraries/eeprom_mngr.obj: /home/satish/workspace_v9/embssystems_practice
 /home/satish/workspace_v9/embssystems_practice/INCLUDE/i2c.h: 
 /home/satish/workspace_v9/embssystems_practice/INCLUDE/exception_handlers.h: 
 /home/satish/workspace_v9/embssystems_practice/INCLUDE/eeprom.h: 
+/home/satish/workspace_v9/embssystems_practice/Diagnostics/diagnostic_manager.h: 

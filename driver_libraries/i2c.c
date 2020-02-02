@@ -25,19 +25,19 @@ i2c_configuration i2c_config ;
 /*API to activate the i2c ports and do the system initilization*/
 /*give the mask value to activate the appropriate i2c module 
   ex : number 3 will activate i2c channel 0 and 1 */
-void initilize_i2c_structure()
-{
+//void initilize_i2c_structure()
+//{
     /*configured according to the requirement */
-    i2c_config.modules_to_be_enabled = (module0 | module1);
+    //i2c_config.modules_to_be_enabled = (module0 | module1);
    // i2c_config.ports_i2c_present = (RCGC_GPIO_PORTA | RCGC_GPIO_PORTB);
-    i2c_config.master_slave_config = ((0<<module0) | (0<<module1));
+ //   i2c_config.master_slave_config = ((0<<module0) | (0<<module1));
     //i2c.pins_select = 
-    i2c_config.slave_addr_data_tobesent.slave_address = 0x3B;
+ //   i2c_config.slave_addr_data_tobesent.slave_address = 0x3B;
     /*temporary */
-    i2c_config.slave_addr_data_tobesent.data = 0x20;
-    initilize_i2c();
+  //  i2c_config.slave_addr_data_tobesent.data = 0x20;
+ //   initilize_i2c();
 
-}
+//}
 
 inline uint8_t calculate_MTPR(set_clk_rate baud)
 {

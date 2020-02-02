@@ -99,7 +99,7 @@ void sys_init()
       In this case I am activatiog 0 and 1   */
     //intilize_general_purpose_timer();
     eeprom_driver_init();
-    initilize_i2c_structure();
+    initilize_i2c();
     //initilize_i2c();
 
 }

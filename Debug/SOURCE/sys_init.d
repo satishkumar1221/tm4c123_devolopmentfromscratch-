@@ -19,6 +19,7 @@ SOURCE/sys_init.obj: /home/satish/workspace_v9/embssystems_practice/INCLUDE/pwm_
 SOURCE/sys_init.obj: /home/satish/workspace_v9/embssystems_practice/INCLUDE/eeprom.h
 SOURCE/sys_init.obj: /home/satish/workspace_v9/embssystems_practice/INCLUDE/sys_init.h
 SOURCE/sys_init.obj: /home/satish/workspace_v9/embssystems_practice/INCLUDE/eeprom.h
+SOURCE/sys_init.obj: /home/satish/workspace_v9/embssystems_practice/Diagnostics/diagnostic_manager.h
 
 ../SOURCE/sys_init.c: 
 /home/satish/workspace_v9/embssystems_practice/INCLUDE/sys_init.h: 
@@ -39,3 +40,4 @@ SOURCE/sys_init.obj: /home/satish/workspace_v9/embssystems_practice/INCLUDE/eepr
 /home/satish/workspace_v9/embssystems_practice/INCLUDE/eeprom.h: 
 /home/satish/workspace_v9/embssystems_practice/INCLUDE/sys_init.h: 
 /home/satish/workspace_v9/embssystems_practice/INCLUDE/eeprom.h: 
+/home/satish/workspace_v9/embssystems_practice/Diagnostics/diagnostic_manager.h: 

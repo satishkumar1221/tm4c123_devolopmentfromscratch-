@@ -24,8 +24,12 @@ DTC_Name name[Total_DTC_Number];
 void set_bits(uint8_t *varname, uint8_t number );
 void testfaillogic(DTC_Name Name );
 extern uint8_t Fault_Info[Total_DTC_Number];
+extern uint8_t warm_up_cycles;//[Total_DTC_Number];
+extern uint8_t malfunctiontimes;//[Total_DTC_Number];
+/*typedef struct 
+{
 
-
+} ;*/
 
 
 
