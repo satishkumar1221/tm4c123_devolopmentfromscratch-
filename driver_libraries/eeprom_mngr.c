@@ -25,7 +25,7 @@ static void initlize_eeprom_struct();
 static void initlize_eeprom_struct()
 {
    eeprom_access.access_struct.block_number = 0x01;              
-   eeprom_access.access_struct.ee_offset_value = 0x00;
+   eeprom_access.access_struct.ee_offset_value = 0x01;//Access one word at a time
    eeprom_access.pwd_protected.password_protected_status = FALSE;
    eeprom_access. data_cpd_rcvd_eeprom. ptr_fault_array = &Fault_Info;
    eeprom_access. data_cpd_rcvd_eeprom. ptr_warmup_cycles = &warm_up_cycles;
@@ -99,12 +99,17 @@ void mem_copy(const void *source , const void *destination , uint32_t size)
 {
     int i=0;
     char *src = (char*)source;  
-    char *dst = (char *)destination;
+    char *dst = (char*)destination;
+    /*Add a check to read contents from e2prom before writing it */
+    /*Access one word at a same time */
+    EEPROM_EEOFFSET_R = eeprom_access.access_struct.ee_offset_value;
     for(i =0 ; i<size ; i++)
     {
+        /*Offset and destination must be set a same time*/
+
         dst[i] =src[i];
         i++;
-        EEPROM_EEOFFSET_R = i++;
+
     }
 
 }
@@ -114,7 +119,7 @@ void write_contents_toeeprom(eeprom_struct *access_handle)
 {
         /* Access the EEPROM Registers */
         EEPROM_EEBLOCK_R = access_handle->access_struct.block_number;
-        EEPROM_EEOFFSET_R = access_handle->access_struct.ee_offset_value;
+
         
         if(access_handle->pwd_protected.password_protected_status)
         {
@@ -126,7 +131,7 @@ void write_contents_toeeprom(eeprom_struct *access_handle)
         }
         if(!EEPROM_EEDONE_R)
         {
-            mem_copy(&access_handle->data_cpd_rcvd_eeprom, EEPROM_EERDWR_R_ADDRINCR, sizeof(access_handle->data_cpd_rcvd_eeprom));
+            mem_copy(&access_handle->data_cpd_rcvd_eeprom, (uint32_t *)EEPROM_EERDWR_R_ADDRINCR, sizeof(access_handle->data_cpd_rcvd_eeprom)); //EEPROM_EERDWR_R_ADDRINCR
         }
         else
         {
@@ -134,6 +139,11 @@ void write_contents_toeeprom(eeprom_struct *access_handle)
             testfaillogic(EEPROM_FAULT);
         }
         
+
+}
+
+void write_contents_eeprom_byAddress(uint32_t *source_address , uint32_t *destination_address ,uint32_t size) // By block in the eeprom
+{
 
 }
 

@@ -78,6 +78,7 @@ extern eeprom_struct eeprom_access;
 void mem_copy(const void *source , const void *destination , uint32_t size);
 
 void write_contents_toeeprom(eeprom_struct *access_handle);
+void write_contents_eeprom_byAddress(uint32_t *source_address , uint32_t *destination_address ,uint32_t size);
 void eeprom_driver_init();
 
 #endif /* INCLUDE_EEPROM_H_ */
