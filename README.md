@@ -12,3 +12,6 @@ This repo concentrates on tm4c123 board bringup
 02/02/2020
 1. e2prom driver devolopment under progress. Writing Generic API for reading and writing data from e2prom. 
 2. Writing data driver for reaing and writing huge chunk of data and individual data. Work in Progress.
+Things yet to do 
+1. Decide the block size and offset value based on the given address. 
+   for ex if address is 0x31 it has to be block 2 and 0 offset.(block 2 offset 1 )
