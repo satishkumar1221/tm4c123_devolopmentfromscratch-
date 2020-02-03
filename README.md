@@ -6,6 +6,9 @@ This repo concentrates on tm4c123 board bringup
 4. The reason for i2c holding the BUS have to be found out.  
 
 01/31/2020 
-
 1. Timer API improvent. Generic Timer API for timeouts written. Timer 0 selected in 32 bit mode. 
 2. Testing results have to be attached. 
+
+02/02/2020
+1. e2prom driver devolopment under progress. Writing Generic API for reading and writing data from e2prom. 
+2. Writing data driver for reaing and writing huge chunk of data and individual data. Work in Progress.
