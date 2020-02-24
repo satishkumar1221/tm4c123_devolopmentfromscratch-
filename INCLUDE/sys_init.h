@@ -6,6 +6,9 @@
 #include "eeprom.h"
 
 
+/*According to discussion with oxophobe it is better to have a generic interface */
+setpinportandfunctionality(uint8_t portnumber,uint8_t pin_number , uint8_t set_drive_strngth);
+
 void corereset();
 void systemresetfunction();
 void sys_init();

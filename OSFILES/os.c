@@ -19,6 +19,7 @@ const scheduler sch1[5] =
 {task10  , task10ms ,  &task_10ms},
 {task20  , task20ms ,  &task_20ms},
 {task100 , task100ms , &task_100ms}
+
 };
 
  void start_os()
@@ -54,10 +55,15 @@ const scheduler sch1[5] =
  }
 
  void task_1ms(){os_normal_task_count[task1]++;}
-void task_5ms(){os_normal_task_count[task5]++; }
+void task_5ms()
+{
+os_normal_task_count[task5]++;
+
+}
 void task_10ms(){os_normal_task_count[task10]++;}
 void task_20ms(){os_normal_task_count[task20]++;}
-void task_100ms(){os_normal_task_count[task100]++;}
+void task_100ms(){os_normal_task_count[task100]++;
+master_single_data_transmit(i2c_bus1,0x38,0x07);}
 
 
 void set_maxtaskmask(int n)

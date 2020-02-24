@@ -29,6 +29,6 @@ typedef struct
 }gpio_interrupt_config;
 
 extern const gpio_config gpio_pin_spec[];
-
+//extern const i2c_port_pin_config_table tbl[];
 
 #endif /* INCLUDE_CONSTDATA_GPIO_H_ */

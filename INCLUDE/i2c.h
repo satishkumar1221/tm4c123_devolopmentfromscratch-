@@ -11,13 +11,32 @@
 #include <stdint.h>
 #include <tm4c123gh6pm.h>
 #include "exception_handlers.h"
-
+#include "constdata_gpio.h"
 #define configure_gpio_pctlreg_portb 0x03 
 
 #define I2C0_MCS_R_addr              ((volatile uint32_t *)0x40020004)
 #define I2C1_MCS_R_addr             ((volatile uint32_t *)0x40021004)
 #define I2C2_MCS_R_addr             ((volatile uint32_t *)0x40022004)
 #define I2C3_MCS_R_addr             ((volatile uint32_t *)0x40023004)
+#define i2c_busy_mask 0x01
+/*run =1 ; generrate start; generatestop  ; data acknowledgement enable*/
+#define configure_master_single_write 0x07
+#define check_registervalue(desiredvalue, mask,registervalue) ((registervalue & mask) == desiredvalue) ? 0x01 : 0x00 
+
+inline void  write_address_slave(uint32_t slave_address,volatile uint32_t *register_address)
+{
+    *register_address = slave_address;
+}    
+inline void  write_data_slave(uint32_t slave_data,uint32_t *register_data)
+{
+       *register_data = slave_data;
+}
+
+inline void i2c0_isr()
+{
+    /*Look for the MIMR register */
+}
+
 typedef enum
 {
     module0 = 0x01, /*corresponds to port A*/
@@ -90,6 +109,7 @@ typedef struct
 
 }i2c_configuration; 
 
+
 typedef struct
 {
     i2c_bus bus;
@@ -107,8 +127,9 @@ extern i2c_configuration i2c_config ;
 /*function protoypes to inililize i2c*/
 void initilize_i2c();
 void initilize_i2c_structure();
+void master_single_data_transmit(i2c_bus modulenumber , uint32_t slave_address , uint8_t slavedata);
 /*Make a generic function 
  initilizei2cmodule(modulenumber , masterslave ,slave address , slavedata)*/
- void initilizei2cmodulemasterconfig(i2c_bus modulenumber , uint8_t master , uint8_t slave , uint32_t slave_address , uint8_t slavedata , set_clk_rate baud);
+ void initilizei2cmodulemasterconfig(i2c_bus modulenumber , uint8_t master , uint8_t slave , set_clk_rate baud);
  void initilizei2cmoduleslaveconfig(i2c_bus modulenumber , uint8_t master , uint8_t slave , set_clk_rate baud);
 #endif /* INCLUDE_I2C_H_ */

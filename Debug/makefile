@@ -2,7 +2,7 @@
 # Automatically-generated file. Do not edit!
 ################################################################################
 
-CG_TOOL_ROOT := /home/satish/ti/ccs920/ccs/tools/compiler/ti-cgt-arm_18.12.3.LTS
+CG_TOOL_ROOT := /home/satish/ti/ccs930/ccs/tools/compiler/ti-cgt-arm_18.12.4.LTS
 
 GEN_OPTS__FLAG := 
 GEN_CMDS__FLAG := 
@@ -139,34 +139,34 @@ endif
 
 # Add inputs and outputs from these tool invocations to the build variables 
 EXE_OUTPUTS += \
-embssystems_practice.out \
+EmbeddedSystemsPractice.out \
 
 EXE_OUTPUTS__QUOTED += \
-"embssystems_practice.out" \
+"EmbeddedSystemsPractice.out" \
 
 BIN_OUTPUTS += \
-embssystems_practice.hex \
+EmbeddedSystemsPractice.hex \
 
 BIN_OUTPUTS__QUOTED += \
-"embssystems_practice.hex" \
+"EmbeddedSystemsPractice.hex" \
 
 
 # All Target
 all: $(OBJS) $(CMD_SRCS) $(GEN_CMDS)
-	@$(MAKE) --no-print-directory -Onone "embssystems_practice.out"
+	@$(MAKE) --no-print-directory -Onone "EmbeddedSystemsPractice.out"
 
 # Tool invocations
-embssystems_practice.out: $(OBJS) $(CMD_SRCS) $(GEN_CMDS)
+EmbeddedSystemsPractice.out: $(OBJS) $(CMD_SRCS) $(GEN_CMDS)
 	@echo 'Building target: "$@"'
 	@echo 'Invoking: ARM Linker'
-	"/home/satish/ti/ccs920/ccs/tools/compiler/ti-cgt-arm_18.12.3.LTS/bin/armcl" -mv7M4 --code_state=16 --float_support=FPv4SPD16 -me --define=ccs="ccs" --define=PART_TM4C123GH6PM -g --gcc --diag_warning=225 --diag_wrap=off --display_error_number --abi=eabi -z -m"embssystems_practice.map" --heap_size=0 --stack_size=512 -i"/home/satish/ti/ccs920/ccs/tools/compiler/ti-cgt-arm_18.12.3.LTS/lib" -i"/home/satish/ti/ccs920/ccs/tools/compiler/ti-cgt-arm_18.12.3.LTS/include" --reread_libs --diag_wrap=off --display_error_number --warn_sections --xml_link_info="embssystems_practice_linkInfo.xml" --rom_model -o "embssystems_practice.out" $(ORDERED_OBJS)
+	"/home/satish/ti/ccs930/ccs/tools/compiler/ti-cgt-arm_18.12.4.LTS/bin/armcl" -mv7M4 --code_state=16 --float_support=FPv4SPD16 -me --define=ccs="ccs" --define=PART_TM4C123GH6PM -g --gcc --diag_warning=225 --diag_wrap=off --display_error_number --abi=eabi -z -m"EmbeddedSystemsPractice.map" --heap_size=0 --stack_size=512 -i"/home/satish/ti/ccs930/ccs/tools/compiler/ti-cgt-arm_18.12.4.LTS/lib" -i"/home/satish/ti/ccs930/ccs/tools/compiler/ti-cgt-arm_18.12.4.LTS/include" --reread_libs --diag_wrap=off --display_error_number --warn_sections --xml_link_info="EmbeddedSystemsPractice_linkInfo.xml" --rom_model -o "EmbeddedSystemsPractice.out" $(ORDERED_OBJS)
 	@echo 'Finished building target: "$@"'
 	@echo ' '
 
-embssystems_practice.hex: $(EXE_OUTPUTS)
+EmbeddedSystemsPractice.hex: $(EXE_OUTPUTS)
 	@echo 'Building files: $(strip $(EXE_OUTPUTS__QUOTED))'
 	@echo 'Invoking: ARM Hex Utility'
-	"/home/satish/ti/ccs920/ccs/tools/compiler/ti-cgt-arm_18.12.3.LTS/bin/armhex"  -o "embssystems_practice.hex" $(EXE_OUTPUTS__QUOTED)
+	"/home/satish/ti/ccs930/ccs/tools/compiler/ti-cgt-arm_18.12.4.LTS/bin/armhex"  -o "EmbeddedSystemsPractice.hex" $(EXE_OUTPUTS__QUOTED)
 	@echo 'Finished building: $(strip $(EXE_OUTPUTS__QUOTED))'
 	@echo ' '
 

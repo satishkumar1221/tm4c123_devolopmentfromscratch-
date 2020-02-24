@@ -13,8 +13,10 @@
 #include "sys_init.h"
 #include "diagnostic_manager.h"
 
-#define EEPROM_EERDWR_R_ADDRINCR         (0x400AF014)
-
+#define EEPROM_EERDWR_R_ADDRINCR (0x400AF014)
+/*Texas Instruments API have to analyze */
+#define OFFSET_FROM_ADDR(x) (((x) >> 2) & 0x0F)
+#define EEPROMBlockFromAddr(ui32Addr) ((ui32Addr) >> 6)
 
 typedef enum 
 {
@@ -33,12 +35,15 @@ extern eeprom_status eeprom_init_stat;
 
 
 typedef struct {
-    /* data */
-    uint16_t block_number; 
-    uint16_t ee_offset_value;
-   // uint8_t readwriteincrementregister;
-   // uint16_t eeprom_read_write_interfacereg;
+    /*Address where data has to be written */
+    uint32_t address;
+    /*size of the data */
+    uint16_t size;
+    /*data*/
+    uint32_t data; 
+    /*status of the eedone register*/
     Boolean status_eedoneregister;
+
 
 }eeprom_access_structure;
 
@@ -52,32 +57,10 @@ typedef struct
 }eeprom_passwordstruct;
 
 
+extern eeprom_access_structure eeprom_access[];
+void eeprom_write(const void *source , const void *destination , uint32_t size ,uint32_t *data );
 
-
-/*Function pointers to all the functions that need data to be filled in this structure*/
-/*Eventally have to modify the linker file to select section by section for the transfer of the data in block*/
-typedef struct 
-{
-     /*For now I need ot transfer 5 Bytes of data */
-     uint8_t *ptr_fault_array;
-     uint8_t *ptr_warmup_cycles;
-     uint8_t *ptr_malfunctionrepeated;
-     
-
-}eeprom_data_Structure;// common structure to have all the elements that have to be stored in the e2prom 
-
-
-typedef struct 
-{
-   eeprom_access_structure access_struct; 
-   eeprom_passwordstruct  pwd_protected; 
-   eeprom_data_Structure data_cpd_rcvd_eeprom;
-}eeprom_struct;
-
-extern eeprom_struct eeprom_access;
-void mem_copy(const void *source , const void *destination , uint32_t size);
-
-void write_contents_toeeprom(eeprom_struct *access_handle);
+void write_contents_toeeprom( uint8_t *data,uint8_t isdataarray , uint8_t size);
 void write_contents_eeprom_byAddress(uint32_t *source_address , uint32_t *destination_address ,uint32_t size);
 void eeprom_driver_init();
 

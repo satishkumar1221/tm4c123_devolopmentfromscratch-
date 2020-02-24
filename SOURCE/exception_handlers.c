@@ -24,6 +24,7 @@ void enable_interrupts()
 
 void i2c_exception_handler(uint32_t *MSR_Status)
 {
+
     if(*MSR_Status & i2c_busy)
     {
           /*start the timer*/
@@ -36,12 +37,23 @@ void i2c_exception_handler(uint32_t *MSR_Status)
           }
           if(timeout_reached())
           {
+              if((*MSR_Status & i2c_busy) == 0x00)
+              {
+                 
+              }
+              else
+              {
+                  /* code */
               *MSR_Status  =  0x04;
               timercount=0;
               stopttimer();
               testfaillogic(I2C_Fault);
+
+              }
+            
           }
-    }
+    
+}
 }
 
 void systemresetfunction()

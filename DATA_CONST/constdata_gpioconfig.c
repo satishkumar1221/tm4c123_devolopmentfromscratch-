@@ -5,7 +5,7 @@
  *      Author: satish
  */
 #include "constdata_gpio.h"
-
+#include "i2c.h"
 /*This table has all the cases represented in pg 657 of the datasheet*/
 
 /*create an enumeration map later on */
@@ -90,5 +90,6 @@ const gpio_config gpio_pin_spec[] =
    /*Analog comaprator  */
    {0, 0 , 0 , 0 , 0 , 0 , 0 , 0, 0,0 }, //35
  };  
+
 
 

@@ -9,7 +9,7 @@
 
 uint8_t Fault_Info[Total_DTC_Number];
 uint8_t warm_up_cycles = 0x01 ;
-uint8_t malfunctiontimes = 0x02;
+uint8_t malfunctiontimes = 0xAC;
 void set_bits(uint8_t *varname, uint8_t number )
 {
     *(varname) = (*varname |= number);

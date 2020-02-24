@@ -21,7 +21,7 @@ void initilize_rcc_registers()
   //write_Registers(SYSCTL_RCC_R,SYSCTL_RCC_OSCSRC_INT);
   SYSCTL_RCC_R = (SYSCTL_RCC_R | SYSCTL_RCC_OSCSRC_MAIN); // we want main oscillator as the source
   //change the clock frequenct yo 16.384 Mhz
-  SYSCTL_RCC_R = (SYSCTL_RCC_R | SYSCTL_RCC_XTAL_16_3MHZ );
+  SYSCTL_RCC_R = (SYSCTL_RCC_R | SYSCTL_RCC_XTAL_20MHZ );
   /*Disable the PLL Bypass*/
   SYSCTL_RCC_R =(SYSCTL_RCC_R | SYSCTL_RCC_BYPASS);
   /*Always say that the PLL is operating normally */
@@ -99,7 +99,8 @@ void sys_init()
       In this case I am activatiog 0 and 1   */
     //intilize_general_purpose_timer();
     eeprom_driver_init();
-    initilize_i2c();
+    /*Common driver API to initilize i2c BUS*/
+    initilizei2cmodulemasterconfig( i2c_bus1,  0x01 , 0x00, onehundredkb_sec);
     //initilize_i2c();
 
 }
@@ -121,7 +122,7 @@ void systick_initlize()
      *
      * )
      * */
-    NVIC_ST_RELOAD_R = 0x3FFF;
+    NVIC_ST_RELOAD_R = 0x4E1F;
     NVIC_ST_CURRENT_R = 0x00;
     // pg 138 in datasheet tm4c123
     /* 0 bit is 1 : Systick timer enabled in the multi shot way
@@ -143,28 +144,24 @@ static void  initlize_portA_peripherals()
       /*We are not writing the values for SSI becoause it is a dont care combination */
       //GPIO_PORTA_DIR_R = (gpio_pin_spec[0].gpio_dir << 6)  /*| (gpio_pin_spec[0].gpio_dir <<1)*/; 
       /*Configure AFSEL register */
-      GPIO_PORTA_AFSEL_R = ((gpio_pin_spec[6].afsel_setup <<6) | (gpio_pin_spec[6].afsel_setup <<7) | 
+      GPIO_PORTA_AFSEL_R = (
                              /*SSI setup */
                             (gpio_pin_spec[32].afsel_setup <<2) | (gpio_pin_spec[32].afsel_setup <<3) | (gpio_pin_spec[32].afsel_setup <<4) | (gpio_pin_spec[32].afsel_setup <<5) |
                              /*set up UART config as well */
                              (gpio_pin_spec[32].afsel_setup) |  (gpio_pin_spec[32].afsel_setup << 1));
                             /*Set the drive strength of the gpio pin */    
                             
-      GPIO_PORTA_DR4R_R = ((gpio_pin_spec[6].drive_4mA_out <<6) | (gpio_pin_spec[6].drive_4mA_out <<7) |
+      GPIO_PORTA_DR4R_R = (
                              /*SSI setup */
                             (gpio_pin_spec[32].drive_4mA_out <<2) | (gpio_pin_spec[32].drive_4mA_out <<3) | (gpio_pin_spec[32].drive_4mA_out <<4) | (gpio_pin_spec[32].drive_4mA_out <<5) |
                              (gpio_pin_spec[32].drive_4mA_out)| (gpio_pin_spec[32].drive_4mA_out <<1));   
       /*Set up pull up or pull down configuration */
-      GPIO_PORTA_PDR_R = ((gpio_pin_spec[6].pull_down_activate <<6) | (gpio_pin_spec[6].pull_down_activate <<7) | 
+      GPIO_PORTA_PDR_R = (
                              /*SSI setup */
                             (gpio_pin_spec[32].pull_down_activate <<2) | (gpio_pin_spec[32].pull_down_activate <<3) | (gpio_pin_spec[32].pull_down_activate) 
                             | (gpio_pin_spec[32].pull_down_activate <<4) | (gpio_pin_spec[32].pull_down_activate <<5) | (gpio_pin_spec[32].pull_down_activate <<1));
-    /*Activate pull upresestors for i2c */
-      GPIO_PORTA_PUR_R = ((gpio_pin_spec[6].pull_up_activate <<6) | (gpio_pin_spec[6].pull_up_activate <<7));
-    /*Activate open drain  for i2c*/
-      GPIO_PORTA_ODR_R = ((gpio_pin_spec[6].gpio_odr <<7)); 
-     /*Set up digital enable register */
-      GPIO_PORTA_DEN_R = ((gpio_pin_spec[6].digital_enable <<6) | (gpio_pin_spec[6].digital_enable <<7)  |
+
+      GPIO_PORTA_DEN_R =(
                              /*SSI setup */
                             (gpio_pin_spec[32].digital_enable <<2) | (gpio_pin_spec[32].digital_enable <<3) | (gpio_pin_spec[32].digital_enable)
                             | (gpio_pin_spec[32].digital_enable <<4) | (gpio_pin_spec[32].digital_enable <<5) | (gpio_pin_spec[32].digital_enable <<5) | (gpio_pin_spec[32].digital_enable <<1));
@@ -174,18 +171,7 @@ static void  initlize_portA_peripherals()
 }
 static void initlize_portB_peripherals()
 {
-//    Port B6 and B7 are configured as i2c  
-    // Configuring AFSEL register
 
-    
-    GPIO_PORTB_AFSEL_R = ((gpio_pin_spec[6].afsel_setup <<2) | (gpio_pin_spec[6].afsel_setup << 3));
-    GPIO_PORTB_DR4R_R = ((gpio_pin_spec[6].drive_4mA_out <<2) | (gpio_pin_spec[6].drive_4mA_out <<3));
-    GPIO_PORTB_PDR_R = ((gpio_pin_spec[6].pull_down_activate <<2) | (gpio_pin_spec[6].pull_down_activate <<3));
-    GPIO_PORTB_DEN_R = ((gpio_pin_spec[6].digital_enable <<2) | (gpio_pin_spec[6].digital_enable <<3));
-        /*Activate pull upresestors for i2c */
-    GPIO_PORTB_PUR_R = ( (gpio_pin_spec[6].gpio_odr <<3));
-    /*Activate open drain  for i2c*/
-    GPIO_PORTB_ODR_R = ((gpio_pin_spec[6].pull_up_activate <<2) | (gpio_pin_spec[6].pull_up_activate <<3));
 }
 
 static void initilizeportC_peripherals()
@@ -196,11 +182,7 @@ static void initilizeportC_peripherals()
 }
 static void initilizeportD_peripherals()
 {
-    /* initilize for i2c */
-    GPIO_PORTD_AFSEL_R  = ((gpio_pin_spec[8].afsel_setup <<2) | (gpio_pin_spec[8].afsel_setup <<1));
-    GPIO_PORTD_DR4R_R = ((gpio_pin_spec[8].drive_4mA_out <<2) | (gpio_pin_spec[8].drive_4mA_out <<1));
-    GPIO_PORTD_PDR_R =  ((gpio_pin_spec[8].pull_down_activate <<2) | (gpio_pin_spec[8].pull_down_activate <<1));
-    GPIO_PORTD_DEN_R  =  ((gpio_pin_spec[8].digital_enable <<2) | (gpio_pin_spec[8].digital_enable <<1));
+
       
 }
 static void initilizeportE_peripherals(){
