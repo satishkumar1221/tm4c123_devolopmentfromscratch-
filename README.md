@@ -13,5 +13,17 @@ This repo concentrates on tm4c123 board bringup
 1. e2prom driver devolopment under progress. Writing Generic API for reading and writing data from e2prom. 
 2. Writing data driver for reaing and writing huge chunk of data and individual data. Work in Progress.
 Things yet to do 
-1. Decide the block size and offset value based on the given address. 
+3. Decide the block size and offset value based on the given address. 
    for ex if address is 0x31 it has to be block 2 and 0 offset.(block 2 offset 1 )
+
+02/24/2020
+
+1. i2c driver devolopment in progress. Configured GPIO in a proper way. 
+2. Code refactoring already done.
+
+yet to do 
+
+1. Write the SPI drivers. 
+2. Design a architecture to be used by application. 
+3. Write a preemptive and round robin scheduler.
+

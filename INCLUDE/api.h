@@ -13,6 +13,13 @@
 
 #define max_bitset 0xFFFFFFFF
 
+typedef enum 
+{
+    FALSE, //0 
+    TRUE  //1
+
+}Boolean;
+
 //#define write_Registers(address,mask) { ((address  & max_bitset) | mask ); }
 
 /*Use this APi only to access the system registers*/
