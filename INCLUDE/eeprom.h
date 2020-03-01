@@ -18,11 +18,11 @@
 #define OFFSET_FROM_ADDR(x) (((x) >> 2) & 0x0F)
 #define EEPROMBlockFromAddr(ui32Addr) ((ui32Addr) >> 6)
 
-typedef enum 
+/*typedef enum
 {
-  TRUE,
-  FALSE
-}Boolean;
+  true,
+  false
+}Boolean;*/
 
 typedef enum
 {

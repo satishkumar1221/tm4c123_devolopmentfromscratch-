@@ -63,7 +63,8 @@ os_normal_task_count[task5]++;
 void task_10ms(){os_normal_task_count[task10]++;}
 void task_20ms(){os_normal_task_count[task20]++;}
 void task_100ms(){os_normal_task_count[task100]++;
-master_single_data_transmit(i2c_bus1,0x38,0x07);}
+//master_single_data_transmit(i2c_bus1,0x38,0x07);
+}
 
 
 void set_maxtaskmask(int n)

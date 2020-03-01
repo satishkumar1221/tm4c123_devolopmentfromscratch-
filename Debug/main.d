@@ -24,6 +24,7 @@ main.obj: /home/satish/workspace_v9/EmbeddedSystemsPractice/INCLUDE/eeprom.h
 main.obj: /home/satish/workspace_v9/EmbeddedSystemsPractice/INCLUDE/sys_init.h
 main.obj: /home/satish/workspace_v9/EmbeddedSystemsPractice/INCLUDE/eeprom.h
 main.obj: /home/satish/workspace_v9/EmbeddedSystemsPractice/Diagnostics/diagnostic_manager.h
+main.obj: /home/satish/workspace_v9/EmbeddedSystemsPractice/INCLUDE/queue.h
 main.obj: /home/satish/workspace_v9/EmbeddedSystemsPractice/INCLUDE/os.h
 main.obj: /home/satish/workspace_v9/EmbeddedSystemsPractice/INCLUDE/sys_init.h
 
@@ -51,5 +52,6 @@ main.obj: /home/satish/workspace_v9/EmbeddedSystemsPractice/INCLUDE/sys_init.h
 /home/satish/workspace_v9/EmbeddedSystemsPractice/INCLUDE/sys_init.h: 
 /home/satish/workspace_v9/EmbeddedSystemsPractice/INCLUDE/eeprom.h: 
 /home/satish/workspace_v9/EmbeddedSystemsPractice/Diagnostics/diagnostic_manager.h: 
+/home/satish/workspace_v9/EmbeddedSystemsPractice/INCLUDE/queue.h: 
 /home/satish/workspace_v9/EmbeddedSystemsPractice/INCLUDE/os.h: 
 /home/satish/workspace_v9/EmbeddedSystemsPractice/INCLUDE/sys_init.h: 
