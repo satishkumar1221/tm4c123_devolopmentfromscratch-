@@ -108,11 +108,12 @@ void add_element_osqueue(uint8_t preemptive_priority , uint32_t task_rate, void 
 
         }
         #endif 
-        func_ptr();                         /*priority*/       /*rate*/   /*Handle to the function to be executed */
+        /*priority*/       /*rate*/   /*Handle to the function to be executed */
         /*Fill up OS Functions here . Have to find out what is causing the error. May be use a Double pointer */
         Acc_os_struct(os_tasks.track_osqueue_index_rear).taskratefunc = func_ptr;
         //Acc_os_struct(os_tasks.track_osqueue_index_rear).taskratefunc();
         fillup_operating_system_structure(preemptive_priority,task_rate);
+
 
        /*Front and Rear pointing to the first element */
        //os_tasks.track_osqueue_index_front++;
@@ -142,8 +143,8 @@ void initos()
      os_tasks.isqueuefull = &is_queue_osfull;
      os_tasks.track_osqueue_index_front = 0;
      os_tasks.track_osqueue_index_rear = 0;
-     os_tasks.addelementqueue(0,100,&task_100ms);
-    // EnqueOperation_os(0,10,&task_10ms);
+     //os_tasks.addelementqueue(0,100,&task_100ms);
+    EnqueOperation_os(0,10,&task_100ms);
    //  EnqueOperation_os(0,5,&task_5ms);
     // EnqueOperation_os(0,100,&task_100ms);
   //   DequeOperation_os();
