@@ -127,13 +127,6 @@ void eeprom_driver_init()
           systemresetfunction();
       }
       eeprom_init_stat = temp_status;
-      initlize_eeprom_struct();
-      for(i=0 ; i<5; i++)
-        {
-            Fault_Info[i] = i;
-        }
-      testvar = (sizeof(malfunctiontimes)/sizeof(uint8_t));
-
 
 }
 
@@ -141,44 +134,44 @@ void eeprom_driver_init()
 
 /*This function was written to push the data into interface register */
 /*Write a logic for multi block data and add a check for data check */
-void eeprom_write(const void *source , const void *destination , uint32_t size ,uint32_t *data )
+void eeprom_write(const void *source , const void *destination , uint32_t size)
 {
    // int i =0 ;
     //EEPROM_EEBLOCK_R = access_handle->block_number;
-    //char *src = (char*)source;
-   // char *dst = (char*)destination;
+    /*Nice Things to Add*/
+    //1. Check for all th initia; conditions such as the size of the eeprom and are we writing on a correct block etc
+    char *src = (char*)source;
+    char *dst = (char*)destination;
    // while((EEPROM_EEDONE_R & EE_DONE_MASK));
-   // EEPROM_EEBLOCK_R  =   EEPROMBlockFromAddr(access_handle ->address);
-    //EEPROM_EEOFFSET_R =  OFFSET_FROM_ADDR(access_handle -> address);
-    //size = size/4;
-   // for(int i=0 ;i<size ; i++)
-   // {
-      //  EEPROMSectorMaskSet((uint32_t *)destination);
-
-        /*write the word automatically in the auto incrementing register*/
-      //  EEPROM_EERDWRINC_R = *(data);
-        /*Wait for the few clock cycles */
-        //cpu_cyclesdelay(0,10);
-
-
-
-   // }
+    EEPROM_EEBLOCK_R  =   EEPROMBlockFromAddr((uint32_t)destination);
+    EEPROM_EEOFFSET_R =  OFFSET_FROM_ADDR((uint32_t)destination);
+    for(int i=0 ;i<size ; i++)
+    {
+      EEPROMSectorMaskSet((uint32_t *)destination);
+      /*write the word automatically in the auto incrementing register*/
+      /*As we incremet everytime by a word there must be a logic to do so */
+      EEPROM_EERDWRINC_R = destination;
+      //check if the write is successful 
+    }
 
 
 }
-
-
-//void read_contents_to_eeprom(eeprom_struct *access_handle)
-//{
-    /* Accessing the EEPROM registers for reading*/
-    //EEPROM_EEBLOCK_R = access_handle->access_struct.block_number;
-
-    //if
-//}
-
-
-void write_contents_eeprom_byAddress(uint32_t *source_address , uint32_t *destination_address ,uint32_t size) // By block in the eeprom
+/*Source must be an address from the e2prom and destination is ana address in RAM */
+void eeprom_read(const void *source , const void *destination , uint32_t size)
 {
+
+    char *src = (char*)source;
+    char *dst = (char*)destination;
+    EEPROM_EEBLOCK_R  =   EEPROMBlockFromAddr((uint32_t)source);
+    EEPROM_EEOFFSET_R =  OFFSET_FROM_ADDR((uint32_t)source);
+    for(int i=0 ;i<size ; i++)
+    {
+      EEPROMSectorMaskSet((uint32_t *)destination);
+      /*write the word automatically in the auto incrementing register*/
+      /*As we incremet everytime by a word there must be a logic to do so */
+      source = EEPROM_EERDWRINC_R ;
+    }
+
 
 }
 
