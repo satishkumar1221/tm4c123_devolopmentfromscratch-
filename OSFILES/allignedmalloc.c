@@ -2,6 +2,8 @@
 #include <stdio.h>
 #include <stdlib.h>
 
+
+/*Temporary file for refrence have to be deleted. Just kept For refrence */
 /*************************************************
 Name :- aligned_malloc
 Arguments:- number of bytes & Alignment Boundry
