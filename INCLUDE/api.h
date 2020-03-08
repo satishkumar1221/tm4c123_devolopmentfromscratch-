@@ -20,14 +20,28 @@ typedef enum
 
 }Boolean;
 
-//#define write_Registers(address,mask) { ((address  & max_bitset) | mask ); }
+/*Average of the 2 unsigned numbers using bitwise operations */
+#define Avg_two_numbers_overflowprot(a,b) ((a | b ) - ((a ^ b) >> 1))
+#define reg_write(addr,value) ((*(volatile uint32_t *)addr) | value)
+/*Use this API to read data drom a register with a given mask*/
+inline uint32_t reg_read(volatile uint32_t *address , uint32_t mask)
+{
+    uint32_t temp; 
+    temp = ((*(volatile uint32_t *)address) & mask);
+    return(temp); 
+}
+/*Use this APi to set bits in a global variable*/
+inline void  set_bits_byte(uint8_t *ptr_var_address,uint8_t mask) {(*(ptr_var_address)|mask);}
+/*Use this APi to clear bits in a global variable*/
+inline void clear_bits_byte(uint8_t *ptr_var_address,uint8_t mask){(*(ptr_var_address)& mask);}
+/*Use this APi to clear bits in a global variable*/
+inline void  set_bits_word(uint16_t *ptr_var_address,uint16_t mask) {(*(ptr_var_address)|mask);}
+/*Use this APi to clear bits in a global variable*/
+inline void clear_bits_word(uint16_t *ptr_var_address,uint16_t mask){(*(ptr_var_address)& mask);}
+/*Use this APi to clear bits in a global variable*/
+inline void  set_bits_integer(uint16_t *ptr_var_address,uint16_t mask) {(*(ptr_var_address)|mask);}
+/*Use this APi to clear bits in a global variable*/
+inline void clear_bits_integer(uint16_t *ptr_var_address,uint32_t mask){(*(ptr_var_address)& mask);}
 
-/*Use this APi only to access the system registers*/
-//inline void write_Registers(uint32_t address, uint32_t mask) { (address |  mask ); }
-/*Check the api once in for all*/
-//inline void clear_registers_withmask(uint32_t address, uint32_t mask) {(address ^ mask); }
-/*Flush all the registers*/
-//inline void flush_registers(uint32_t address, uint32_t mask) {(address & 0x00);}
-/**/
 #endif /* INCLUDE_API_H_ */
 
